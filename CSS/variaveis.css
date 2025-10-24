@@ -1,0 +1,228 @@
+/*
+==========================================
+  ONGCONNECT - SISTEMA DE DESIGN
+  Design System com Variáveis CSS
+==========================================
+*/
+
+:root {
+    /* ===== PALETA DE CORES ===== */
+    
+    /* Cores Primárias */
+    --cor-primaria: #667eea;
+    --cor-primaria-escura: #5568d3;
+    --cor-primaria-clara: #8b9fee;
+    
+    /* Cores Secundárias */
+    --cor-secundaria: #764ba2;
+    --cor-secundaria-escura: #5d3a82;
+    --cor-secundaria-clara: #9568c2;
+    
+    /* Cores Neutras */
+    --cor-branco: #ffffff;
+    --cor-cinza-100: #f8f9fa;
+    --cor-cinza-200: #e9ecef;
+    --cor-cinza-300: #dee2e6;
+    --cor-cinza-400: #ced4da;
+    --cor-cinza-500: #adb5bd;
+    --cor-cinza-600: #6c757d;
+    --cor-cinza-700: #495057;
+    --cor-cinza-800: #343a40;
+    --cor-cinza-900: #212529;
+    --cor-preto: #000000;
+    
+    /* Cores de Feedback */
+    --cor-sucesso: #27ae60;
+    --cor-sucesso-clara: #2ecc71;
+    --cor-erro: #e74c3c;
+    --cor-erro-clara: #ff6b6b;
+    --cor-alerta: #f39c12;
+    --cor-alerta-clara: #f1c40f;
+    --cor-info: #3498db;
+    --cor-info-clara: #5dade2;
+    
+    /* Cores de Categoria (Projetos) */
+    --cor-educacao: #3498db;
+    --cor-saude: #e74c3c;
+    --cor-meio-ambiente: #27ae60;
+    --cor-direitos: #9b59b6;
+    --cor-cultura: #e67e22;
+    --cor-tecnologia: #34495e;
+    
+    /* ===== TIPOGRAFIA ===== */
+    
+    /* Família de Fontes */
+    --fonte-primaria: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-secundaria: 'Georgia', serif;
+    --fonte-codigo: 'Courier New', monospace;
+    
+    /* Tamanhos de Fonte */
+    --fonte-xs: 0.75rem;      /* 12px */
+    --fonte-sm: 0.875rem;     /* 14px */
+    --fonte-base: 1rem;       /* 16px */
+    --fonte-md: 1.125rem;     /* 18px */
+    --fonte-lg: 1.25rem;      /* 20px */
+    --fonte-xl: 1.5rem;       /* 24px */
+    --fonte-2xl: 2rem;        /* 32px */
+    --fonte-3xl: 2.5rem;      /* 40px */
+    --fonte-4xl: 3rem;        /* 48px */
+    
+    /* Pesos de Fonte */
+    --peso-normal: 400;
+    --peso-medio: 500;
+    --peso-semibold: 600;
+    --peso-bold: 700;
+    --peso-extrabold: 800;
+    
+    /* Altura de Linha */
+    --linha-compacta: 1.2;
+    --linha-normal: 1.6;
+    --linha-relaxada: 1.8;
+    
+    /* ===== ESPAÇAMENTO MODULAR ===== */
+    
+    --espaco-xs: 0.25rem;     /* 4px */
+    --espaco-sm: 0.5rem;      /* 8px */
+    --espaco-base: 1rem;      /* 16px */
+    --espaco-md: 1.5rem;      /* 24px */
+    --espaco-lg: 2rem;        /* 32px */
+    --espaco-xl: 3rem;        /* 48px */
+    --espaco-2xl: 4rem;       /* 64px */
+    --espaco-3xl: 6rem;       /* 96px */
+    
+    /* ===== BORDAS ===== */
+    
+    --borda-fina: 1px;
+    --borda-media: 2px;
+    --borda-grossa: 4px;
+    
+    --raio-sm: 4px;
+    --raio-base: 8px;
+    --raio-md: 12px;
+    --raio-lg: 16px;
+    --raio-xl: 24px;
+    --raio-circular: 50%;
+    --raio-pill: 9999px;
+    
+    /* ===== SOMBRAS ===== */
+    
+    --sombra-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --sombra-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --sombra-base: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra-md: 0 6px 12px rgba(0, 0, 0, 0.12);
+    --sombra-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --sombra-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+    
+    /* Sombras Coloridas */
+    --sombra-primaria: 0 8px 25px rgba(102, 126, 234, 0.3);
+    --sombra-sucesso: 0 8px 25px rgba(39, 174, 96, 0.3);
+    --sombra-erro: 0 8px 25px rgba(231, 76, 60, 0.3);
+    
+    /* ===== TRANSIÇÕES ===== */
+    
+    --transicao-rapida: 0.15s ease;
+    --transicao-base: 0.3s ease;
+    --transicao-lenta: 0.5s ease;
+    
+    /* ===== Z-INDEX ===== */
+    
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-popover: 600;
+    --z-tooltip: 700;
+    
+    /* ===== LARGURAS MÁXIMAS ===== */
+    
+    --container-xs: 480px;
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+    
+    /* ===== BREAKPOINTS ===== */
+    /* Usados nos media queries */
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    
+    /* ===== GRADIENTES ===== */
+    
+    --gradiente-primario: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    --gradiente-sucesso: linear-gradient(135deg, var(--cor-sucesso) 0%, var(--cor-sucesso-clara) 100%);
+    --gradiente-info: linear-gradient(135deg, var(--cor-info) 0%, var(--cor-info-clara) 100%);
+    --gradiente-overlay: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    
+    /* ===== OPACIDADE ===== */
+    
+    --opacidade-disabled: 0.5;
+    --opacidade-hover: 0.8;
+    
+    /* ===== BACKDROP FILTER ===== */
+    
+    --blur-sm: blur(4px);
+    --blur-base: blur(8px);
+    --blur-md: blur(12px);
+    --blur-lg: blur(16px);
+}
+
+/* ===== MODO ESCURO (OPCIONAL) ===== */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --cor-cinza-100: #212529;
+        --cor-cinza-200: #343a40;
+        --cor-cinza-300: #495057;
+        --cor-cinza-900: #f8f9fa;
+    }
+}
+
+/* ===== CLASSES UTILITÁRIAS DE CORES ===== */
+
+.cor-primaria { color: var(--cor-primaria); }
+.cor-secundaria { color: var(--cor-secundaria); }
+.cor-sucesso { color: var(--cor-sucesso); }
+.cor-erro { color: var(--cor-erro); }
+.cor-alerta { color: var(--cor-alerta); }
+.cor-info { color: var(--cor-info); }
+
+.bg-primaria { background-color: var(--cor-primaria); }
+.bg-secundaria { background-color: var(--cor-secundaria); }
+.bg-sucesso { background-color: var(--cor-sucesso); }
+.bg-erro { background-color: var(--cor-erro); }
+.bg-cinza-100 { background-color: var(--cor-cinza-100); }
+
+/* ===== CLASSES UTILITÁRIAS DE TIPOGRAFIA ===== */
+
+.texto-xs { font-size: var(--fonte-xs); }
+.texto-sm { font-size: var(--fonte-sm); }
+.texto-base { font-size: var(--fonte-base); }
+.texto-lg { font-size: var(--fonte-lg); }
+.texto-xl { font-size: var(--fonte-xl); }
+.texto-2xl { font-size: var(--fonte-2xl); }
+.texto-3xl { font-size: var(--fonte-3xl); }
+
+.peso-normal { font-weight: var(--peso-normal); }
+.peso-medio { font-weight: var(--peso-medio); }
+.peso-semibold { font-weight: var(--peso-semibold); }
+.peso-bold { font-weight: var(--peso-bold); }
+
+/* ===== CLASSES UTILITÁRIAS DE ESPAÇAMENTO ===== */
+
+.m-0 { margin: 0; }
+.mt-1 { margin-top: var(--espaco-base); }
+.mb-1 { margin-bottom: var(--espaco-base); }
+.my-1 { margin-top: var(--espaco-base); margin-bottom: var(--espaco-base); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.p-1 { padding: var(--espaco-base); }
+.p-2 { padding: var(--espaco-lg); }
+.p-3 { padding: var(--espaco-xl); }
+
+/* ===== FIM DO SISTEMA DE DESIGN ===== */

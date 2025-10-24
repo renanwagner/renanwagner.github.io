@@ -1,0 +1,337 @@
+/*
+==========================================
+  ONGCONNECT - SISTEMA DE GRID
+  Grid Customizado 12 Colunas + Flexbox
+==========================================
+*/
+
+/* ===== CONTAINER ===== */
+
+.container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--espaco-base);
+    padding-right: var(--espaco-base);
+}
+
+.container-fluid {
+    width: 100%;
+    padding-left: var(--espaco-base);
+    padding-right: var(--espaco-base);
+}
+
+.container-sm {
+    max-width: var(--container-sm);
+}
+
+.container-md {
+    max-width: var(--container-md);
+}
+
+.container-lg {
+    max-width: var(--container-lg);
+}
+
+.container-xl {
+    max-width: var(--container-xl);
+}
+
+/* ===== SISTEMA DE GRID CSS GRID ===== */
+
+.grid {
+    display: grid;
+    gap: var(--espaco-base);
+}
+
+/* Grid de 12 colunas */
+.grid-12 {
+    grid-template-columns: repeat(12, 1fr);
+}
+
+/* Grid responsivo com auto-fit */
+.grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Grid de 2 colunas */
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Grid de 3 colunas */
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Grid de 4 colunas */
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Grid de 6 colunas */
+.grid-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/* Spans de coluna para grid de 12 colunas */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-8 { grid-column: span 8; }
+.col-span-9 { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+.col-span-11 { grid-column: span 11; }
+.col-span-12 { grid-column: span 12; }
+
+/* Gaps personalizados */
+.gap-xs { gap: var(--espaco-xs); }
+.gap-sm { gap: var(--espaco-sm); }
+.gap-base { gap: var(--espaco-base); }
+.gap-md { gap: var(--espaco-md); }
+.gap-lg { gap: var(--espaco-lg); }
+.gap-xl { gap: var(--espaco-xl); }
+
+/* ===== SISTEMA FLEXBOX ===== */
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+/* Justify Content */
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+/* Align Items */
+.items-start {
+    align-items: flex-start;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-baseline {
+    align-items: baseline;
+}
+
+.items-stretch {
+    align-items: stretch;
+}
+
+/* Align Self */
+.self-auto {
+    align-self: auto;
+}
+
+.self-start {
+    align-self: flex-start;
+}
+
+.self-end {
+    align-self: flex-end;
+}
+
+.self-center {
+    align-self: center;
+}
+
+.self-stretch {
+    align-self: stretch;
+}
+
+/* Flex Grow e Shrink */
+.flex-1 {
+    flex: 1 1 0%;
+}
+
+.flex-auto {
+    flex: 1 1 auto;
+}
+
+.flex-initial {
+    flex: 0 1 auto;
+}
+
+.flex-none {
+    flex: none;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+.grow-0 {
+    flex-grow: 0;
+}
+
+.shrink {
+    flex-shrink: 1;
+}
+
+.shrink-0 {
+    flex-shrink: 0;
+}
+
+/* ===== LAYOUT DE PÁGINA COMUM ===== */
+
+.layout-page {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.layout-page-header {
+    grid-area: header;
+}
+
+.layout-page-main {
+    grid-area: main;
+}
+
+.layout-page-footer {
+    grid-area: footer;
+}
+
+/* Layout com sidebar */
+.layout-sidebar {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.layout-sidebar-header {
+    grid-area: header;
+}
+
+.layout-sidebar-sidebar {
+    grid-area: sidebar;
+}
+
+.layout-sidebar-main {
+    grid-area: main;
+}
+
+.layout-sidebar-footer {
+    grid-area: footer;
+}
+
+/* ===== MEDIA QUERIES RESPONSIVAS ===== */
+
+/* Tablets (768px+) */
+@media (min-width: 768px) {
+    .container {
+        padding-left: var(--espaco-lg);
+        padding-right: var(--espaco-lg);
+    }
+    
+    /* Grid responsivo para tablet */
+    .md\:grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .md\:grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .md\:col-span-6 {
+        grid-column: span 6;
+    }
+    
+    /* Flexbox responsivo */
+    .md\:flex-row {
+        flex-direction: row;
+    }
+    
+    .md\:justify-between {
+        justify-content: space-between;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    /* Grid responsivo para desktop */
+    .lg\:grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .lg\:grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .lg\:col-span-4 {
+        grid-column: span 4;
+    }
+    
+    .lg\:col-span-8 {
+        grid-column: span 8;
+    }
+}
+
+/* Desktop Grande (1280px+) */
+@media (min-width: 1280px) {
+    .xl\:grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .xl\:grid-6 {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+/* ===== FIM DO SISTEMA DE GRID ===== */

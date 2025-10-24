@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ONGConnect - Plataforma digital para ONGs gerenciarem projetos sociais, captarem recursos e engajarem voluntários">
+    <meta name="keywords" content="ONG, voluntariado, doação, projetos sociais, terceiro setor">
+    <meta name="author" content="ONGConnect">
+    <title>ONGConnect - Transformando Vidas através da Tecnologia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        .about-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .about-section h3 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-section h3 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery {
+            margin: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho e Navegação -->
+    <header>
+        <nav>
+            <h1>🤝 ONGConnect</h1>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Hero -->
+    <section class="hero">
+        <h2>Conectando ONGs ao Futuro Digital</h2>
+        <p>Plataforma completa para gerenciar projetos sociais, engajar voluntários e transformar vidas através da tecnologia</p>
+        <div class="cta-buttons">
+            <a href="cadastro.html" class="btn btn-primary">Cadastre-se Agora</a>
+            <a href="projetos.html" class="btn btn-secondary">Conheça os Projetos</a>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Sobre a Organização -->
+        <article class="about-section">
+            <h3>Sobre a ONGConnect</h3>
+            <p>
+                A ONGConnect nasceu em 2019 com uma missão clara: democratizar o acesso à tecnologia digital para organizações do terceiro setor brasileiro. Acreditamos que toda ONG, independentemente do seu tamanho ou recursos, merece ter ferramentas profissionais para amplificar seu impacto social.
+            </p>
+            <img src="imagens/sobre-ongconnect.jpg" alt="Equipe da ONGConnect trabalhando em projetos sociais" class="about-image">
+            <p>
+                Nos últimos cinco anos, construímos uma plataforma que já conectou mais de 150 ONGs a milhares de voluntários e doadores. Nossa tecnologia facilita a gestão de projetos sociais, torna a captação de recursos mais eficiente e garante total transparência na prestação de contas.
+            </p>
+            <p>
+                Somos movidos pela crença de que a tecnologia pode ser uma força poderosa para o bem social. Cada linha de código que escrevemos, cada funcionalidade que desenvolvemos, tem o propósito de tornar o trabalho das ONGs mais eficaz e seu impacto mais mensurável.
+            </p>
+        </article>
+
+        <!-- Funcionalidades -->
+        <section>
+            <h2 class="section-title">Como Podemos Ajudar</h2>
+            
+            <div class="features">
+                <article class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4>Gestão de Projetos</h4>
+                    <p>Sistema completo para cadastrar, acompanhar e divulgar seus projetos sociais com indicadores de impacto em tempo real.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h4>Engajamento de Voluntários</h4>
+                    <p>Portal intuitivo para recrutar, gerenciar e reconhecer voluntários com certificados digitais automatizados.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h4>Captação de Recursos</h4>
+                    <p>Sistema integrado de doações online com campanhas personalizadas e relatórios de transparência.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h4>Presença Digital</h4>
+                    <p>Site institucional profissional, responsivo e otimizado para motores de busca.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h4>Métricas e Relatórios</h4>
+                    <p>Dashboards interativos com dados sobre doações, voluntários e impacto social.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Segurança</h4>
+                    <p>Plataforma segura com criptografia HTTPS e conformidade com LGPD.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Estatísticas -->
+        <section class="stats">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Nosso Impacto em Números</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>ONGs Cadastradas</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5.200+</h3>
+                    <p>Voluntários Ativos</p>
+                </div>
+                <div class="stat-item">
+                    <h3>380+</h3>
+                    <p>Projetos em Andamento</p>
+                </div>
+                <div class="stat-item">
+                    <h3>85.000+</h3>
+                    <p>Vidas Impactadas</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria de Imagens -->
+        <section class="gallery">
+            <h2 class="section-title">Galeria de Impacto</h2>
+            <div class="gallery-grid">
+                <img src="imagens/galeria-1.jpg" alt="Crianças em biblioteca digital comunitária lendo livros" class="gallery-item">
+                <img src="imagens/galeria-2.jpg" alt="Voluntários distribuindo alimentos em comunidade carente" class="gallery-item">
+                <img src="imagens/galeria-3.jpg" alt="Mutirão de saúde com médicos voluntários atendendo pacientes" class="gallery-item">
+                <img src="imagens/galeria-4.jpg" alt="Plantio de árvores em projeto de reflorestamento urbano" class="gallery-item">
+                <img src="imagens/galeria-5.jpg" alt="Oficina de arte para jovens em situação de vulnerabilidade" class="gallery-item">
+                <img src="imagens/galeria-6.jpg" alt="Aula de programação para crianças de baixa renda" class="gallery-item">
+            </div>
+        </section>
+
+        <!-- Informações de Contato -->
+        <section class="contact-section">
+            <h3>Entre em Contato</h3>
+            <div class="contact-grid">
+                <article class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h4>Endereço</h4>
+                    <p>Av. Paulista, 1000 - 10º andar<br>Bela Vista, São Paulo - SP<br>CEP: 01310-100</p>
+                </article>
+
+                <article class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h4>Telefone</h4>
+                    <p>(11) 3456-7890</p>
+                    <p>(11) 98765-4321 (WhatsApp)</p>
+                </article>
+
+                <article class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <h4>E-mail</h4>
+                    <p>contato@ongconnect.org.br</p>
+                    <p>parcerias@ongconnect.org.br</p>
+                </article>
+
+                <article class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <h4>Horário</h4>
+                    <p>Segunda a Sexta: 9h às 18h</p>
+                    <p>Sábado: 9h às 13h</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 ONGConnect - Todos os direitos reservados</p>
+        <p>Transformando o terceiro setor através da tecnologia</p>
+        <p>CNPJ: 00.000.000/0001-00 | Certificado CEBAS</p>
+    </footer>
+</body>
+</html>

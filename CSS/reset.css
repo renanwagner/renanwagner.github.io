@@ -1,0 +1,158 @@
+/*
+==========================================
+  ONGCONNECT - CSS RESET
+  Normalização e Reset de Estilos
+==========================================
+*/
+
+/* ===== RESET BÁSICO ===== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== HTML E BODY ===== */
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--fonte-primaria);
+    font-size: var(--fonte-base);
+    font-weight: var(--peso-normal);
+    line-height: var(--linha-normal);
+    color: var(--cor-cinza-900);
+    background-color: var(--cor-cinza-100);
+    min-height: 100vh;
+}
+
+/* ===== TIPOGRAFIA ===== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--peso-bold);
+    line-height: var(--linha-compacta);
+    margin-bottom: var(--espaco-base);
+    color: var(--cor-cinza-900);
+}
+
+h1 { font-size: var(--fonte-4xl); }
+h2 { font-size: var(--fonte-3xl); }
+h3 { font-size: var(--fonte-2xl); }
+h4 { font-size: var(--fonte-xl); }
+h5 { font-size: var(--fonte-lg); }
+h6 { font-size: var(--fonte-base); }
+
+p {
+    margin-bottom: var(--espaco-base);
+}
+
+/* ===== LISTAS ===== */
+
+ul, ol {
+    list-style: none;
+}
+
+/* ===== LINKS ===== */
+
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color var(--transicao-base);
+}
+
+a:hover {
+    color: var(--cor-primaria-escura);
+}
+
+a:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+/* ===== IMAGENS E MÍDIA ===== */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== FORMULÁRIOS ===== */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+/* ===== TABELAS ===== */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+/* ===== OUTROS ELEMENTOS ===== */
+
+hr {
+    border: none;
+    border-top: var(--borda-fina) solid var(--cor-cinza-300);
+    margin: var(--espaco-lg) 0;
+}
+
+/* ===== ACESSIBILIDADE ===== */
+
+/* Esconde elementos visualmente mas mantém para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Remove animações para quem prefere redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===== FIM DO RESET ===== */

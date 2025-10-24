@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cadastre-se na ONGConnect e faça parte da nossa rede de voluntários e doadores">
+    <meta name="keywords" content="cadastro, voluntário, doador, ONG">
+    <meta name="author" content="ONGConnect">
+    <title>Cadastro - ONGConnect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .intro-section h3 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .form-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .form-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-section h3 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        fieldset {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        legend {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #667eea;
+            padding: 0 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        label .required {
+            color: #e74c3c;
+            margin-left: 0.2rem;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        input:invalid:not(:placeholder-shown) {
+            border-color: #e74c3c;
+        }
+
+        input:valid:not(:placeholder-shown) {
+            border-color: #2ecc71;
+        }
+
+        .helper-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        .error-message {
+            font-size: 0.85rem;
+            color: #e74c3c;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        input:invalid:not(:placeholder-shown) ~ .error-message {
+            display: block;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .checkbox-group {
+            margin-top: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .checkbox-item input {
+            width: auto;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .security-note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .security-note strong {
+            color: #667eea;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho e Navegação -->
+    <header>
+        <nav>
+            <h1>🤝 ONGConnect</h1>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Cabeçalho da Página -->
+    <section class="page-header">
+        <h2>Cadastro ONGConnect</h2>
+        <p>Junte-se a nós e faça parte da transformação social</p>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Introdução -->
+        <article class="intro-section">
+            <h3>Bem-vindo(a) à ONGConnect!</h3>
+            <p>
+                Preencha o formulário abaixo para se cadastrar como voluntário ou doador. 
+                Ao completar seu cadastro, você terá acesso a oportunidades de voluntariado, 
+                poderá fazer doações e acompanhar o impacto das suas contribuições em tempo real.
+            </p>
+            <img src="imagens/cadastro-banner.jpg" alt="Pessoas de mãos dadas formando círculo em sinal de união e solidariedade" class="form-image">
+        </article>
+
+        <!-- Formulário de Cadastro -->
+        <section class="form-section">
+            <h3>Formulário de Cadastro</h3>
+            
+            <form id="cadastroForm" method="post" action="/api/cadastro" novalidate>
+                
+                <!-- Dados Pessoais -->
+                <fieldset>
+                    <legend>📋 Dados Pessoais</legend>
+                    
+                    <div class="form-group">
+                        <label for="nomeCompleto">
+                            Nome Completo<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="nomeCompleto" 
+                            name="nomeCompleto" 
+                            placeholder="Digite seu nome completo"
+                            required
+                            minlength="3"
+                            maxlength="100">
+                        <span class="helper-text">Mínimo 3 caracteres</span>
+                        <span class="error-message">Por favor, insira seu nome completo</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">
+                                E-mail<span class="required">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="seu@email.com"
+                                required>
+                            <span class="error-message">E-mail inválido</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cpf">
+                                CPF<span class="required">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="cpf" 
+                                name="cpf" 
+                                placeholder="000.000.000-00"
+                                pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+                                title="Formato: 000.000.000-00"
+                                required
+                                maxlength="14">
+                            <span class="helper-text">Formato: 000.000.000-00</span>
+                            <span class="error-message">CPF inválido</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefone">
+                                Telefone<span class="required">*</span>
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="telefone" 
+                                name="telefone" 
+                                placeholder="(00) 00000-0000"
+                                pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}"
+                                title="Formato: (00) 00000-0000"
+                                required
+                                maxlength="15">
+                            <span class="helper-text">Formato: (00) 00000-0000</span>
+                            <span class="error-message">Telefone inválido</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dataNascimento">
+                                Data de Nascimento<span class="required">*</span>
+                            </label>
+                            <input 
+                                type="date" 
+                                id="dataNascimento" 
+                                name="dataNascimento"
+                                min="1924-01-01"
+                                max="2010-12-31"
+                                required>
+                            <span class="helper-text">Idade mínima: 18 anos</span>
+                            <span class="error-message">Data inválida</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Endereço -->
+                <fieldset>
+                    <legend>📍 Endereço</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cep">
+                                CEP<span class="required">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="cep" 
+                                name="cep" 
+                                placeholder="00000-000"
+                                pattern="[0-9]{5}-[0-9]{3}"
+                                title="Formato: 00000-000"
+                                required
+                                maxlength="9">
+                            <span class="helper-text">Formato: 00000-000</span>
+                            <span class="error-message">CEP inválido</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estado">
+                                Estado<span class="required">*</span>
+                            </label>
+                            <select id="estado" name="estado" required>
+                                <option value="">Selecione...</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">
+                            Cidade<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="cidade" 
+                            name="cidade" 
+                            placeholder="Digite sua cidade"
+                            required
+                            minlength="2">
+                        <span class="error-message">Cidade inválida</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endereco">
+                            Endereço Completo<span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="endereco" 
+                            name="endereco" 
+                            placeholder="Rua, Avenida, número, complemento"
+                            required
+                            minlength="5">
+                        <span class="helper-text">Inclua rua, número e complemento se houver</span>
+                        <span class="error-message">Endereço inválido</span>
+                    </div>
+                </fieldset>
+
+                <!-- Preferências -->
+                <fieldset>
+                    <legend>✨ Suas Preferências</legend>
+                    
+                    <div class="form-group">
+                        <label>
+                            Como deseja participar?<span class="required">*</span>
+                        </label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="voluntario" name="participacao[]" value="voluntario" required>
+                                <label for="voluntario" style="font-weight: normal;">Quero ser voluntário</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="doador" name="participacao[]" value="doador">
+                                <label for="doador" style="font-weight: normal;">Quero fazer doações</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="divulgador" name="participacao[]" value="divulgador">
+                                <label for="divulgador" style="font-weight: normal;">Quero divulgar projetos</label>
+                            </div>
+                        </div>
+                        <span class="helper-text">Selecione pelo menos uma opção</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="areaInteresse">
+                            Área de Interesse Principal
+                        </label>
+                        <select id="areaInteresse" name="areaInteresse">
+                            <option value="">Selecione...</option>
+                            <option value="educacao">Educação</option>
+                            <option value="saude">Saúde</option>
+                            <option value="meio-ambiente">Meio Ambiente</option>
+                            <option value="direitos-humanos">Direitos Humanos</option>
+                            <option value="cultura">Cultura e Arte</option>
+                            <option value="tecnologia">Tecnologia Social</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Termos e Condições -->
+                <fieldset>
+                    <legend>📜 Termos e Condições</legend>
+                    
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="termos" name="termos" required>
+                            <label for="termos" style="font-weight: normal;">
+                                Aceito os termos de uso e política de privacidade<span class="required">*</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <label for="newsletter" style="font-weight: normal;">
+                                Desejo receber novidades e oportunidades por e-mail
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Botão de Envio -->
+                <button type="submit" class="btn-submit">
+                    Completar Cadastro 🚀
+                </button>
+
+                <!-- Nota de Segurança -->
+                <div class="security-note">
+                    <p>🔒 <strong>Seus dados estão seguros!</strong></p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                        Utilizamos criptografia de ponta e estamos em conformidade com a LGPD (Lei Geral de Proteção de Dados)
+                    </p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 ONGConnect - Todos os direitos reservados</p>
+        <p>Transformando o terceiro setor através da tecnologia</p>
+        <p>CNPJ: 12.345.678/0001-90 | Certificado CEBAS</p>
+    </footer>
+
+    <!-- JavaScript para Máscaras e Validações -->
+    <script>
+        // Máscara de CPF
+        document.getElementById('cpf').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length <= 11) {
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            }
+            
+            e.target.value = value;
+        });
+
+        // Máscara de Telefone
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length <= 11) {
+                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+                value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+            }
+            
+            e.target.value = value;
+        });
+
+        // Máscara de CEP
+        document.getElementById('cep').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            if (value.length <= 8) {
+                value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+            }
+            
+            e.target.value = value;
+        });
+
+        // Validação de idade (mínimo 18 anos)
+        document.getElementById('dataNascimento').addEventListener('change', function(e) {
+            const nascimento = new Date(e.target.value);
+            const hoje = new Date();
+            let idade = hoje.getFullYear() - nascimento.getFullYear();
+            const mes = hoje.getMonth() - nascimento.getMonth();
+            
+            if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+                idade--;
+            }
+            
+            if (idade < 18) {
+                e.target.setCustomValidity('Você deve ter pelo menos 18 anos para se cadastrar');
+                alert('Desculpe, você deve ter pelo menos 18 anos para se cadastrar na plataforma.');
+            } else {
+                e.target.setCustomValidity('');
+            }
+        });
+
+        // Busca automática de CEP (simulação - em produção usaria API ViaCEP)
+        document.getElementById('cep').addEventListener('blur', function(e) {
+            const cep = e.target.value.replace(/\D/g, '');
+            
+            if (cep.length === 8) {
+                // Simulação de preenchimento automático
+                // Em produção: fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                console.log('Buscando CEP:', cep);
+                
+                // Exemplo de uso real da API ViaCEP (comentado para não fazer requisições reais):
+                /*
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.erro) {
+                            document.getElementById('endereco').value = data.logradouro;
+                            document.getElementById('cidade').value = data.localidade;
+                            document.getElementById('estado').value = data.uf;
+                        }
+                    })
+                    .catch(error => console.error('Erro ao buscar CEP:', error));
+                */
+            }
+        });
+
+        // Validação do formulário
+        document.getElementById('cadastroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Verifica se pelo menos uma forma de participação foi selecionada
+            const participacaoChecked = document.querySelectorAll('input[name="participacao[]"]:checked');
+            if (participacaoChecked.length === 0) {
+                alert('Por favor, selecione pelo menos uma forma de participação');
+                return;
+            }
+
+            // Verifica se os termos foram aceitos
+            if (!document.getElementById('termos').checked) {
+                alert('Você precisa aceitar os termos de uso e política de privacidade para continuar');
+                return;
+            }
+
+            // Se tudo estiver válido
+            if (this.checkValidity()) {
+                // Coleta os dados do formulário
+                const formData = new FormData(this);
+                const dados = {};
+                
+                for (let [key, value] of formData.entries()) {
+                    dados[key] = value;
+                }
+                
+                console.log('Dados do formulário:', dados);
+                
+                // Simula envio bem-sucedido
+                alert('✅ Cadastro realizado com sucesso!\n\nSeja bem-vindo(a) à ONGConnect!\n\nEm breve você receberá um e-mail de confirmação com mais informações sobre como começar a fazer a diferença.');
+                
+                // Reseta o formulário
+                this.reset();
+                
+                // Em produção, aqui seria feito o envio real para o servidor:
+                /*
+                fetch('/api/cadastro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dados)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Cadastro realizado com sucesso!');
+                    window.location.href = 'index.html';
+                })
+                .catch(error => {
+                    alert('Erro ao realizar cadastro. Tente novamente.');
+                    console.error('Erro:', error);
+                });
+                */
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios corretamente.');
+            }
+        });
+
+        // Feedback visual em tempo real
+        const inputs = document.querySelectorAll('input[required], select[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value && this.checkValidity()) {
+                    this.style.borderColor = '#2ecc71';
+                } else if (this.value) {
+                    this.style.borderColor = '#e74c3c';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
