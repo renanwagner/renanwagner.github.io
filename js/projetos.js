@@ -15,7 +15,7 @@ const PROJETOS_DB = [
         ong: 'Instituto Solidário',
         local: 'São Paulo, SP',
         vagas: 15,
-        imagem: 'imagens/projeto1.jpg',
+        imagem: 'imagens/galeria-1.jpg',
         tags: ['alimentação', 'solidariedade', 'comunidade'],
         data: '2024-01-15',
         destaque: true
@@ -28,34 +28,34 @@ const PROJETOS_DB = [
         ong: 'Educação Transforma',
         local: 'Rio de Janeiro, RJ',
         vagas: 20,
-        imagem: 'imagens/projeto2.jpg',
+        imagem: 'imagens/projeto-educacao.jpg',
         tags: ['educação', 'crianças', 'ensino'],
         data: '2024-01-20',
         destaque: true
     },
     {
         id: 3,
-        titulo: 'Proteção Animal',
-        descricao: 'Cuidados veterinários e adoção responsável de animais abandonados.',
-        categoria: 'animais',
-        ong: 'Amigos dos Animais',
-        local: 'Belo Horizonte, MG',
-        vagas: 10,
-        imagem: 'imagens/projeto3.jpg',
-        tags: ['animais', 'adoção', 'proteção'],
+        titulo: 'Proteção ao Meio Ambiente',
+        descricao: 'Plantio de árvores e recuperação de áreas degradadas.',
+        categoria: 'meio-ambiente',
+        ong: 'Verde Vida',
+        local: 'Curitiba, PR',
+        vagas: 25,
+        imagem: 'imagens/projeto-ambiente.jpg',
+        tags: ['meio ambiente', 'sustentabilidade', 'árvores'],
         data: '2024-02-01',
         destaque: true
     },
     {
         id: 4,
-        titulo: 'Reflorestamento Urbano',
-        descricao: 'Plantio de árvores nativas em áreas urbanas degradadas.',
-        categoria: 'meio-ambiente',
-        ong: 'Verde Vida',
-        local: 'Curitiba, PR',
-        vagas: 25,
-        imagem: 'imagens/projeto4.jpg',
-        tags: ['meio ambiente', 'sustentabilidade', 'árvores'],
+        titulo: 'Cultura e Arte',
+        descricao: 'Oficinas de arte e cultura para jovens em situação de risco.',
+        categoria: 'cultura',
+        ong: 'Arte Viva',
+        local: 'Recife, PE',
+        vagas: 18,
+        imagem: 'imagens/projeto-cultura.jpg',
+        tags: ['cultura', 'arte', 'juventude'],
         data: '2024-02-10',
         destaque: false
     },
@@ -67,21 +67,21 @@ const PROJETOS_DB = [
         ong: 'Saúde para Todos',
         local: 'Salvador, BA',
         vagas: 12,
-        imagem: 'imagens/projeto5.jpg',
+        imagem: 'imagens/projeto-saude.jpg',
         tags: ['saúde', 'prevenção', 'comunidade'],
         data: '2024-02-15',
         destaque: false
     },
     {
         id: 6,
-        titulo: 'Cultura e Arte',
-        descricao: 'Oficinas de arte e cultura para jovens em situação de risco.',
-        categoria: 'cultura',
-        ong: 'Arte Viva',
-        local: 'Recife, PE',
-        vagas: 18,
-        imagem: 'imagens/projeto6.jpg',
-        tags: ['cultura', 'arte', 'juventude'],
+        titulo: 'Direitos Humanos',
+        descricao: 'Apoio jurídico e social para comunidades vulneráveis.',
+        categoria: 'assistencia-social',
+        ong: 'Justiça Social',
+        local: 'São Paulo, SP',
+        vagas: 10,
+        imagem: 'imagens/projeto-direitos.jpg',
+        tags: ['direitos', 'justiça', 'apoio'],
         data: '2024-02-20',
         destaque: false
     },
@@ -93,35 +93,113 @@ const PROJETOS_DB = [
         ong: 'Digital Inclusivo',
         local: 'Porto Alegre, RS',
         vagas: 15,
-        imagem: 'imagens/projeto7.jpg',
+        imagem: 'imagens/projeto-tech.jpg',
         tags: ['tecnologia', 'inclusão', 'educação'],
         data: '2024-03-01',
         destaque: false
     },
     {
         id: 8,
-        titulo: 'Esporte Cidadão',
-        descricao: 'Atividades esportivas para crianças e adolescentes.',
-        categoria: 'esporte',
-        ong: 'Esporte e Vida',
+        titulo: 'Galeria Comunitária',
+        descricao: 'Exposições de arte e cultura produzidas pela comunidade local.',
+        categoria: 'cultura',
+        ong: 'Galeria Aberta',
         local: 'Brasília, DF',
-        vagas: 30,
-        imagem: 'imagens/projeto8.jpg',
-        tags: ['esporte', 'crianças', 'saúde'],
+        vagas: 20,
+        imagem: 'imagens/galeria-2.jpg',
+        tags: ['arte', 'cultura', 'comunidade'],
         data: '2024-03-05',
         destaque: false
     },
     {
         id: 9,
-        titulo: 'Apoio ao Idoso',
-        descricao: 'Companhia e atividades recreativas para pessoas da terceira idade.',
-        categoria: 'assistencia-social',
-        ong: 'Idade Feliz',
+        titulo: 'Arte e Transformação',
+        descricao: 'Projetos artísticos para desenvolvimento social e cultural.',
+        categoria: 'cultura',
+        ong: 'Arte Transforma',
         local: 'Fortaleza, CE',
-        vagas: 8,
-        imagem: 'imagens/projeto9.jpg',
-        tags: ['idosos', 'companhia', 'cuidado'],
+        vagas: 16,
+        imagem: 'imagens/galeria-3.jpg',
+        tags: ['arte', 'cultura', 'transformação'],
         data: '2024-03-10',
+        destaque: false
+    },
+    {
+        id: 10,
+        titulo: 'Espaço Cultural',
+        descricao: 'Centro cultural comunitário com atividades diversas.',
+        categoria: 'cultura',
+        ong: 'Cultura Viva',
+        local: 'Belo Horizonte, MG',
+        vagas: 22,
+        imagem: 'imagens/galeria-4.jpg',
+        tags: ['cultura', 'arte', 'comunidade'],
+        data: '2024-03-15',
+        destaque: false
+    },
+    {
+        id: 11,
+        titulo: 'Mostra Cultural',
+        descricao: 'Festival de arte e cultura com apresentações e oficinas.',
+        categoria: 'cultura',
+        ong: 'Festival Cultural',
+        local: 'Rio de Janeiro, RJ',
+        vagas: 30,
+        imagem: 'imagens/galeria-5.jpg',
+        tags: ['festival', 'cultura', 'arte'],
+        data: '2024-03-20',
+        destaque: false
+    },
+    {
+        id: 12,
+        titulo: 'Expressão Artística',
+        descricao: 'Workshops de diferentes expressões artísticas para todas as idades.',
+        categoria: 'cultura',
+        ong: 'Arte Para Todos',
+        local: 'Manaus, AM',
+        vagas: 18,
+        imagem: 'imagens/galeria-6.jpg',
+        tags: ['arte', 'workshops', 'cultura'],
+        data: '2024-03-25',
+        destaque: false
+    },
+    {
+        id: 13,
+        titulo: 'Voluntariado em Ação',
+        descricao: 'Múltiplas frentes de atuação social em diversas comunidades.',
+        categoria: 'assistencia-social',
+        ong: 'Ação Comunitária',
+        local: 'Todo Brasil',
+        vagas: 50,
+        imagem: 'imagens/voluntario-1.jpg',
+        tags: ['voluntariado', 'comunidade', 'ação social'],
+        data: '2024-04-01',
+        destaque: false
+    },
+    {
+        id: 14,
+        titulo: 'Transformação pela Solidariedade',
+        descricao: 'Projetos integrados de educação, cultura e desenvolvimento social.',
+        categoria: 'assistencia-social',
+        ong: 'Transformar',
+        local: 'São Paulo, SP',
+        vagas: 35,
+        imagem: 'imagens/voluntario-2.jpg',
+        tags: ['transformação', 'solidariedade', 'desenvolvimento'],
+        data: '2024-04-05',
+        destaque: false
+    },
+    {
+        id: 15,
+        titulo: 'Comunidade Unida',
+        descricao: 'Fortalecimento de vínculos comunitários e desenvolvimento local através do voluntariado.',
+        categoria: 'assistencia-social',
+        ong: 'União Comunitária',
+        local: 'Nacional',
+        vagas: 40,
+        imagem: 'imagens/voluntario-3.jpg',
+        tags: ['comunidade', 'união', 'voluntariado'],
+        data: '2024-04-10',
         destaque: false
     }
 ];
@@ -258,8 +336,10 @@ const Projetos = {
         // Mostrar mensagem se não houver projetos
         if (this.projetosAtuais.length === 0) {
             container.innerHTML = `
-                <div class="sem-resultados">
-                    <p>Nenhum projeto encontrado.</p>
+                <div class="sem-resultados" style="grid-column: 1/-1; text-align: center; padding: var(--espaco-3xl);">
+                    <p style="font-size: var(--fonte-xl); color: var(--cor-cinza-600); margin-bottom: var(--espaco-lg);">
+                        Nenhum projeto encontrado.
+                    </p>
                     <button class="btn btn-primario" onclick="Projetos.limparFiltros()">
                         Limpar Filtros
                     </button>
@@ -288,38 +368,42 @@ const Projetos = {
         
         return `
             <div class="card projeto-card" data-projeto-id="${projeto.id}">
-                <div class="card-imagem">
-                    <img src="${projeto.imagem}" alt="${projeto.titulo}">
+                <div class="card-imagem" style="position: relative; overflow: hidden;">
+                    <img src="${projeto.imagem}" 
+                         alt="${projeto.titulo}"
+                         onerror="this.src='imagens/galeria-1.jpg'"
+                         style="width: 100%; height: 250px; object-fit: cover;">
                     <button class="btn-favorito ${ehFavorito ? 'ativo' : ''}" 
                             onclick="Projetos.toggleFavorito(${projeto.id})"
-                            aria-label="Adicionar aos favoritos">
+                            aria-label="Adicionar aos favoritos"
+                            style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.9); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: all 0.3s ease;">
                         ${ehFavorito ? '❤️' : '🤍'}
                     </button>
-                    ${projeto.destaque ? '<span class="badge badge-destaque">Destaque</span>' : ''}
+                    ${projeto.destaque ? '<span class="badge badge-destaque" style="position: absolute; top: 10px; left: 10px; background: var(--cor-aviso); color: var(--cor-cinza-900); padding: var(--espaco-xs) var(--espaco-sm); border-radius: var(--raio-pill); font-size: var(--fonte-xs); font-weight: var(--peso-bold);">⭐ Destaque</span>' : ''}
                 </div>
-                <div class="card-conteudo">
-                    <span class="card-categoria badge badge-primario">${this.formatarCategoria(projeto.categoria)}</span>
-                    <h3 class="card-titulo">${projeto.titulo}</h3>
-                    <p class="card-descricao">${projeto.descricao}</p>
-                    <div class="card-info">
-                        <span class="info-item">
-                            <strong>ONG:</strong> ${projeto.ong}
-                        </span>
-                        <span class="info-item">
-                            <strong>Local:</strong> ${projeto.local}
-                        </span>
-                        <span class="info-item">
-                            <strong>Vagas:</strong> ${projeto.vagas}
-                        </span>
+                <div class="card-conteudo" style="padding: var(--espaco-lg);">
+                    <span class="card-categoria badge badge-primario" style="margin-bottom: var(--espaco-sm);">${this.formatarCategoria(projeto.categoria)}</span>
+                    <h3 class="card-titulo" style="margin-bottom: var(--espaco-sm); color: var(--cor-primaria);">${projeto.titulo}</h3>
+                    <p class="card-descricao" style="margin-bottom: var(--espaco-base); color: var(--cor-cinza-600); line-height: 1.6;">${projeto.descricao}</p>
+                    <div class="card-info" style="margin: var(--espaco-base) 0; padding: var(--espaco-base); background: var(--cor-cinza-50); border-radius: var(--raio-sm);">
+                        <div style="margin-bottom: var(--espaco-xs); font-size: var(--fonte-sm);">
+                            <strong>🏢 ONG:</strong> ${projeto.ong}
+                        </div>
+                        <div style="margin-bottom: var(--espaco-xs); font-size: var(--fonte-sm);">
+                            <strong>📍 Local:</strong> ${projeto.local}
+                        </div>
+                        <div style="font-size: var(--fonte-sm);">
+                            <strong>👥 Vagas:</strong> ${projeto.vagas} disponíveis
+                        </div>
                     </div>
-                    <div class="card-tags">
-                        ${projeto.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    <div class="card-tags" style="display: flex; flex-wrap: wrap; gap: var(--espaco-xs); margin: var(--espaco-base) 0;">
+                        ${projeto.tags.map(tag => `<span class="tag" style="background: var(--cor-cinza-100); padding: var(--espaco-xs) var(--espaco-sm); border-radius: var(--raio-sm); font-size: var(--fonte-xs);">#${tag}</span>`).join('')}
                     </div>
-                    <div class="card-acoes">
-                        <button class="btn btn-primario" onclick="Projetos.verDetalhes(${projeto.id})">
+                    <div class="card-acoes" style="display: flex; gap: var(--espaco-sm); margin-top: var(--espaco-lg);">
+                        <button class="btn btn-primario" onclick="Projetos.verDetalhes(${projeto.id})" style="flex: 1;">
                             Ver Detalhes
                         </button>
-                        <button class="btn btn-secundario" onclick="Projetos.inscrever(${projeto.id})">
+                        <button class="btn btn-secundario" onclick="Projetos.inscrever(${projeto.id})" style="flex: 1;">
                             Inscrever-se
                         </button>
                     </div>
@@ -333,15 +417,15 @@ const Projetos = {
      */
     formatarCategoria(categoria) {
         const categorias = {
-            'alimentacao': 'Alimentação',
-            'educacao': 'Educação',
-            'saude': 'Saúde',
-            'meio-ambiente': 'Meio Ambiente',
-            'cultura': 'Cultura',
-            'esporte': 'Esporte',
-            'tecnologia': 'Tecnologia',
-            'animais': 'Animais',
-            'assistencia-social': 'Assistência Social'
+            'alimentacao': '🍽️ Alimentação',
+            'educacao': '📚 Educação',
+            'saude': '🏥 Saúde',
+            'meio-ambiente': '🌳 Meio Ambiente',
+            'cultura': '🎭 Cultura',
+            'esporte': '⚽ Esporte',
+            'tecnologia': '💻 Tecnologia',
+            'animais': '🐾 Animais',
+            'assistencia-social': '🤝 Assistência Social'
         };
         
         return categorias[categoria] || categoria;
@@ -400,30 +484,36 @@ const Projetos = {
             tamanho: 'grande',
             conteudo: `
                 <div class="projeto-detalhes">
-                    <img src="${projeto.imagem}" alt="${projeto.titulo}" class="projeto-imagem-destaque">
+                    <img src="${projeto.imagem}" 
+                         alt="${projeto.titulo}" 
+                         class="projeto-imagem-destaque"
+                         onerror="this.src='imagens/galeria-1.jpg'"
+                         style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--raio-md); margin-bottom: var(--espaco-lg);">
                     
-                    <div class="projeto-meta">
+                    <div class="projeto-meta" style="display: flex; flex-wrap: wrap; gap: var(--espaco-base); margin-bottom: var(--espaco-lg); padding: var(--espaco-base); background: var(--cor-cinza-50); border-radius: var(--raio-md);">
                         <span class="badge badge-primario">${this.formatarCategoria(projeto.categoria)}</span>
-                        <span class="info-item"><strong>ONG:</strong> ${projeto.ong}</span>
-                        <span class="info-item"><strong>Local:</strong> ${projeto.local}</span>
-                        <span class="info-item"><strong>Vagas:</strong> ${projeto.vagas}</span>
+                        <span><strong>🏢 ONG:</strong> ${projeto.ong}</span>
+                        <span><strong>📍 Local:</strong> ${projeto.local}</span>
+                        <span><strong>👥 Vagas:</strong> ${projeto.vagas}</span>
                     </div>
                     
-                    <h4>Descrição</h4>
-                    <p>${projeto.descricao}</p>
+                    <h4 style="margin-bottom: var(--espaco-sm); color: var(--cor-primaria);">📋 Descrição</h4>
+                    <p style="margin-bottom: var(--espaco-lg); line-height: 1.8; color: var(--cor-cinza-700);">${projeto.descricao}</p>
                     
-                    <h4>Tags</h4>
-                    <div class="card-tags">
-                        ${projeto.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    <h4 style="margin-bottom: var(--espaco-sm); color: var(--cor-primaria);">🏷️ Tags</h4>
+                    <div class="card-tags" style="display: flex; flex-wrap: wrap; gap: var(--espaco-xs); margin-bottom: var(--espaco-lg);">
+                        ${projeto.tags.map(tag => `<span class="tag" style="background: var(--cor-azul-claro); color: var(--cor-primaria); padding: var(--espaco-xs) var(--espaco-sm); border-radius: var(--raio-sm);">#${tag}</span>`).join('')}
                     </div>
                     
-                    <h4>Como Participar</h4>
-                    <p>Para participar deste projeto, clique no botão "Inscrever-se" abaixo. Você receberá mais informações sobre como contribuir e fazer a diferença!</p>
+                    <div style="background: var(--cor-azul-claro); padding: var(--espaco-lg); border-radius: var(--raio-md); border-left: 4px solid var(--cor-primaria);">
+                        <h4 style="margin-bottom: var(--espaco-sm); color: var(--cor-primaria);">✨ Como Participar</h4>
+                        <p style="line-height: 1.6; color: var(--cor-cinza-700);">Para participar deste projeto, clique no botão "Inscrever-se" abaixo. Você receberá mais informações sobre como contribuir e fazer a diferença na vida de muitas pessoas!</p>
+                    </div>
                 </div>
             `,
             botoes: [
                 {
-                    texto: 'Inscrever-se',
+                    texto: '✅ Inscrever-se',
                     classe: 'btn-primario',
                     acao: `Projetos.inscrever(${projetoId}); fecharModal('modal-projeto-${projetoId}')`
                 },
@@ -468,7 +558,7 @@ const Projetos = {
             data: new Date().toISOString()
         });
         
-        toastSucesso(`Inscrição realizada com sucesso em "${projeto.titulo}"!`);
+        toastSucesso(`Inscrição realizada com sucesso em "${projeto.titulo}"! 🎉`);
         
         log(`✅ Inscrito no projeto: ${projeto.titulo}`);
     },
@@ -479,7 +569,10 @@ const Projetos = {
     atualizarContador() {
         const contador = document.getElementById('projetos-contador');
         if (contador) {
-            contador.textContent = `${this.projetosAtuais.length} projeto(s) encontrado(s)`;
+            const texto = this.projetosAtuais.length === 1 
+                ? '1 projeto encontrado' 
+                : `${this.projetosAtuais.length} projetos encontrados`;
+            contador.textContent = texto;
         }
     },
     
@@ -496,6 +589,12 @@ const Projetos = {
         const campoBusca = document.getElementById('busca-projetos');
         if (campoBusca) {
             campoBusca.value = '';
+        }
+        
+        // Resetar select de ordenação
+        const selectOrdenacao = document.getElementById('ordenacao-projetos');
+        if (selectOrdenacao) {
+            selectOrdenacao.value = 'recentes';
         }
         
         // Resetar filtros visuais
@@ -517,10 +616,13 @@ const Projetos = {
         document.querySelectorAll('.projeto-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-8px)';
+                this.style.transition = 'transform 0.3s ease';
+                this.style.boxShadow = 'var(--sombra-lg)';
             });
             
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'var(--sombra-sm)';
             });
         });
     }
@@ -533,41 +635,28 @@ function inicializarProjetos() {
     Projetos.inicializar();
 }
 
-/**
- * Obter todos os projetos (função global)
- */
 function obterTodosProjetos() {
     return Projetos.obterTodos();
 }
 
-/**
- * Obter projetos em destaque (função global)
- */
 function obterProjetosDestaque(limite) {
     return Projetos.obterDestaques(limite);
 }
 
-/**
- * Inicializar filtros de projetos
- */
 function inicializarFiltrosProjetos() {
-    // Filtros de categoria
     document.querySelectorAll('.filtro-categoria').forEach(botao => {
         botao.addEventListener('click', function() {
             const categoria = this.getAttribute('data-categoria');
             
-            // Atualizar visual dos botões
             document.querySelectorAll('.filtro-categoria').forEach(btn => {
                 btn.classList.remove('ativo');
             });
             this.classList.add('ativo');
             
-            // Aplicar filtro
             Projetos.filtrarPorCategoria(categoria);
         });
     });
     
-    // Ordenação
     const selectOrdenacao = document.getElementById('ordenacao-projetos');
     if (selectOrdenacao) {
         selectOrdenacao.addEventListener('change', function() {
@@ -578,9 +667,6 @@ function inicializarFiltrosProjetos() {
     log('✅ Filtros de projetos inicializados');
 }
 
-/**
- * Inicializar busca de projetos
- */
 function inicializarBuscaProjetos() {
     const campoBusca = document.getElementById('busca-projetos');
     
@@ -588,12 +674,10 @@ function inicializarBuscaProjetos() {
         return;
     }
     
-    // Busca com debounce
     campoBusca.addEventListener('input', debounce(function() {
         Projetos.buscar(this.value);
     }, 500));
     
-    // Busca ao pressionar Enter
     campoBusca.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             Projetos.buscar(this.value);
@@ -603,14 +687,9 @@ function inicializarBuscaProjetos() {
     log('✅ Busca de projetos inicializada');
 }
 
-/**
- * Inicializar sistema de favoritos
- */
 function inicializarFavoritos() {
-    // Carregar favoritos do localStorage
     AppState.projetosFavoritos = Favoritos.obterTodos();
     
-    // Botão para ver favoritos
     const botaoFavoritos = document.getElementById('ver-favoritos');
     if (botaoFavoritos) {
         botaoFavoritos.addEventListener('click', function() {
@@ -621,14 +700,11 @@ function inicializarFavoritos() {
     log('✅ Sistema de favoritos inicializado');
 }
 
-/**
- * Mostrar projetos favoritos
- */
 function mostrarFavoritos() {
     const favoritos = Favoritos.obterTodos();
     
     if (favoritos.length === 0) {
-        toastInfo('Você ainda não tem projetos favoritos');
+        toastInfo('Você ainda não tem projetos favoritos 💙');
         return;
     }
     
@@ -638,17 +714,32 @@ function mostrarFavoritos() {
     
     const conteudoModal = `
         <div class="favoritos-lista">
-            <p>Você tem ${projetosFavoritos.length} projeto(s) favorito(s):</p>
+            <p style="margin-bottom: var(--espaco-lg); font-size: var(--fonte-lg);">
+                ❤️ Você tem ${projetosFavoritos.length} projeto(s) favorito(s):
+            </p>
             ${projetosFavoritos.map(projeto => `
-                <div class="favorito-item">
-                    <img src="${projeto.imagem}" alt="${projeto.titulo}">
-                    <div class="favorito-info">
-                        <h4>${projeto.titulo}</h4>
-                        <p>${projeto.ong} - ${projeto.local}</p>
+                <div class="favorito-item" style="display: flex; align-items: center; gap: var(--espaco-base); padding: var(--espaco-base); border: 2px solid var(--cor-cinza-200); border-radius: var(--raio-md); margin-bottom: var(--espaco-base); transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--cor-primaria)'; this.style.boxShadow='var(--sombra-md)';" onmouseout="this.style.borderColor='var(--cor-cinza-200)'; this.style.boxShadow='none';">
+                    <img src="${projeto.imagem}" 
+                         alt="${projeto.titulo}"
+                         onerror="this.src='imagens/galeria-1.jpg'"
+                         style="width: 100px; height: 100px; object-fit: cover; border-radius: var(--raio-sm); flex-shrink: 0;">
+                    <div class="favorito-info" style="flex: 1;">
+                        <h4 style="margin-bottom: var(--espaco-xs); color: var(--cor-primaria);">${projeto.titulo}</h4>
+                        <p style="color: var(--cor-cinza-600); font-size: var(--fonte-sm); margin-bottom: var(--espaco-xs);">
+                            🏢 ${projeto.ong}
+                        </p>
+                        <p style="color: var(--cor-cinza-600); font-size: var(--fonte-sm);">
+                            📍 ${projeto.local} • 👥 ${projeto.vagas} vagas
+                        </p>
                     </div>
-                    <button class="btn btn-primario" onclick="Projetos.verDetalhes(${projeto.id}); fecharModal('modal-favoritos')">
-                        Ver
-                    </button>
+                    <div style="display: flex; flex-direction: column; gap: var(--espaco-xs);">
+                        <button class="btn btn-primario" onclick="Projetos.verDetalhes(${projeto.id}); fecharModal('modal-favoritos')" style="white-space: nowrap;">
+                            Ver Detalhes
+                        </button>
+                        <button class="btn btn-secundario" onclick="Projetos.toggleFavorito(${projeto.id}); setTimeout(() => mostrarFavoritos(), 300);" style="white-space: nowrap;">
+                            💔 Remover
+                        </button>
+                    </div>
                 </div>
             `).join('')}
         </div>
@@ -656,8 +747,9 @@ function mostrarFavoritos() {
     
     const modalId = Modals.criar({
         id: 'modal-favoritos',
-        titulo: 'Meus Projetos Favoritos',
+        titulo: '❤️ Meus Projetos Favoritos',
         conteudo: conteudoModal,
+        tamanho: 'grande',
         botoes: [
             {
                 texto: 'Fechar',
@@ -670,18 +762,10 @@ function mostrarFavoritos() {
     abrirModal(modalId);
 }
 
-/**
- * Inicializar componentes da home
- */
 function inicializarCardsHome() {
-    // Animações e interações específicas da página home
     log('✅ Cards da home inicializados');
 }
 
-/**
- * Inicializar animações gerais
- */
 function inicializarAnimacoes() {
-    // Animações de scroll reveal
     log('✅ Animações inicializadas');
 }
