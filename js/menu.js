@@ -2,6 +2,7 @@
 ==========================================
   ONGCONNECT - MENU
   Sistema de menu hambúrguer e navegação
+  ACESSÍVEL WCAG 2.1 AA
 ==========================================
 */
 
@@ -10,6 +11,7 @@ const Menu = {
     menuMobile: null,
     menuOverlay: null,
     menuAberto: false,
+    elementosFocaveis: [],
     
     /**
      * Inicializar menu
@@ -24,8 +26,32 @@ const Menu = {
             return;
         }
         
+        // ACESSIBILIDADE: Configurar ARIA
+        this.configurarARIA();
+        
         this.configurarEventListeners();
-        log('✅ Menu inicializado');
+        log('✅ Menu inicializado (acessível)');
+    },
+    
+    /**
+     * NOVO: Configurar atributos ARIA
+     */
+    configurarARIA() {
+        // Botão hambúrguer
+        this.menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+        this.menuToggle.setAttribute('aria-expanded', 'false');
+        this.menuToggle.setAttribute('aria-controls', 'mobile-menu');
+        
+        // Menu mobile
+        this.menuMobile.setAttribute('id', 'mobile-menu');
+        this.menuMobile.setAttribute('role', 'navigation');
+        this.menuMobile.setAttribute('aria-label', 'Menu principal');
+        this.menuMobile.setAttribute('aria-hidden', 'true');
+        
+        // Overlay
+        if (this.menuOverlay) {
+            this.menuOverlay.setAttribute('aria-hidden', 'true');
+        }
     },
     
     /**
@@ -35,6 +61,14 @@ const Menu = {
         // Toggle do menu hambúrguer
         this.menuToggle.addEventListener('click', () => {
             this.alternar();
+        });
+        
+        // ACESSIBILIDADE: Ativar com Enter/Space
+        this.menuToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.alternar();
+            }
         });
         
         // Fechar menu ao clicar no overlay
@@ -55,6 +89,14 @@ const Menu = {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.menuAberto) {
                 this.fechar();
+                this.menuToggle.focus(); // ACESSIBILIDADE: Retornar foco
+            }
+        });
+        
+        // NOVO: Trap focus no menu quando aberto
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && this.menuAberto) {
+                this.gerenciarFoco(e);
             }
         });
         
@@ -64,6 +106,35 @@ const Menu = {
                 this.fechar();
             }
         }, 250));
+    },
+    
+    /**
+     * NOVO: Gerenciar foco dentro do menu (trap focus)
+     */
+    gerenciarFoco(evento) {
+        // Atualizar lista de elementos focáveis
+        this.elementosFocaveis = Array.from(
+            this.menuMobile.querySelectorAll(
+                'a, button, [tabindex]:not([tabindex="-1"])'
+            )
+        );
+        
+        // Adicionar botão de fechar ao início
+        this.elementosFocaveis.unshift(this.menuToggle);
+        
+        const primeiroElemento = this.elementosFocaveis[0];
+        const ultimoElemento = this.elementosFocaveis[this.elementosFocaveis.length - 1];
+        
+        // Voltando (Shift + Tab) do primeiro elemento
+        if (evento.shiftKey && document.activeElement === primeiroElemento) {
+            evento.preventDefault();
+            ultimoElemento.focus();
+        }
+        // Avançando (Tab) do último elemento
+        else if (!evento.shiftKey && document.activeElement === ultimoElemento) {
+            evento.preventDefault();
+            primeiroElemento.focus();
+        }
     },
     
     /**
@@ -86,12 +157,32 @@ const Menu = {
         
         if (this.menuOverlay) {
             this.menuOverlay.classList.add('ativo');
+            this.menuOverlay.setAttribute('aria-hidden', 'false');
         }
+        
+        // ACESSIBILIDADE: Atualizar ARIA
+        this.menuToggle.setAttribute('aria-expanded', 'true');
+        this.menuToggle.setAttribute('aria-label', 'Fechar menu de navegação');
+        this.menuMobile.setAttribute('aria-hidden', 'false');
         
         // Prevenir scroll no body
         document.body.style.overflow = 'hidden';
         
+        // ACESSIBILIDADE: Focar no primeiro link do menu
+        setTimeout(() => {
+            const primeiroLink = this.menuMobile.querySelector('a');
+            if (primeiroLink) {
+                primeiroLink.focus();
+            }
+        }, 100);
+        
         this.menuAberto = true;
+        
+        // ACESSIBILIDADE: Anunciar para leitores de tela
+        if (window.anunciarParaLeitoresDeTela) {
+            anunciarParaLeitoresDeTela('Menu aberto');
+        }
+        
         log('📱 Menu aberto');
     },
     
@@ -104,12 +195,24 @@ const Menu = {
         
         if (this.menuOverlay) {
             this.menuOverlay.classList.remove('ativo');
+            this.menuOverlay.setAttribute('aria-hidden', 'true');
         }
+        
+        // ACESSIBILIDADE: Atualizar ARIA
+        this.menuToggle.setAttribute('aria-expanded', 'false');
+        this.menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+        this.menuMobile.setAttribute('aria-hidden', 'true');
         
         // Restaurar scroll no body
         document.body.style.overflow = '';
         
         this.menuAberto = false;
+        
+        // ACESSIBILIDADE: Anunciar para leitores de tela
+        if (window.anunciarParaLeitoresDeTela) {
+            anunciarParaLeitoresDeTela('Menu fechado');
+        }
+        
         log('📱 Menu fechado');
     }
 };
@@ -134,6 +237,11 @@ const HeaderScroll = {
         
         if (!this.header) {
             return;
+        }
+        
+        // ACESSIBILIDADE: Adicionar role se não existir
+        if (!this.header.getAttribute('role')) {
+            this.header.setAttribute('role', 'banner');
         }
         
         window.addEventListener('scroll', throttle(() => {
